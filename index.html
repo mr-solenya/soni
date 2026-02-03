@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Will You Be My Valentine? 💕</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Floating Hearts Background -->
+    <div class="hearts-container" id="heartsContainer"></div>
+    
+    <!-- Main Content Container -->
+    <main class="main-container">
+        <!-- Question Section -->
+        <section class="question-section" id="questionSection">
+            <h1 class="main-question">Will you be my Valentine?</h1>
+            <div class="button-container">
+                <button class="btn btn-yes" id="yesBtn">
+                    Yes ❤️
+                </button>
+                <button class="btn btn-no" id="noBtn">
+                    No 💔
+                </button>
+            </div>
+            <p class="hover-text" id="hoverText">Are you sure? 🤔</p>
+        </section>
+
+        <!-- Thank You Section -->
+        <section class="thank-you-section" id="thankYouSection">
+            <h1 class="thank-you-title">Thank You ❤️</h1>
+            <div class="gif-container">
+                <img src="images/cristiano-kiss.gif" alt="Cristiano Ronaldo giving a kiss" class="kiss-gif">
+            </div>
+            <p class="thank-you-subtitle">You made my day! 💕</p>
+        </section>
+    </main>
+
+    <!-- Audio Elements for Sound Effects -->
+    <audio id="hoverSound" preload="auto">
+        <source src="https://www.soundjay.com/misc/sounds/bell-ringing-05.mp3" type="audio/mpeg">
+    </audio>
+    
+    <audio id="yesSound" preload="auto">
+        <source src="https://www.soundjay.com/misc/sounds/bell-ringing-02.mp3" type="audio/mpeg">
+    </audio>
+
+    <script src="script.js"></script>
+</body>
+</html>

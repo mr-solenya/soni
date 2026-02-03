@@ -31,7 +31,17 @@
         <section class="thank-you-section" id="thankYouSection">
             <h1 class="thank-you-title">Thank You ❤️</h1>
             <div class="gif-container">
-                <img src="images/cristiano-kiss.gif" alt="Cristiano Ronaldo giving a kiss" class="kiss-gif">
+                <img src="images/cristiano-kiss.gif" 
+                     alt="Cristiano Ronaldo giving a kiss" 
+                     class="kiss-gif" 
+                     id="kissGif"
+                     loading="lazy"
+                     crossorigin="anonymous">
+                <!-- Fallback for when GIF fails to load -->
+                <div class="gif-fallback" id="gifFallback" style="display: none;">
+                    <div class="heart-animation">💖</div>
+                    <p>Cristiano Ronaldo sending kisses!</p>
+                </div>
             </div>
             <p class="thank-you-subtitle">You made my day! 💕</p>
         </section>

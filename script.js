@@ -344,6 +344,9 @@ class ValentineApp {
         // Create heart explosion effect
         this.createHeartExplosion();
         
+        // Setup GIF with fallback
+        this.setupGifWithFallback();
+        
         // Hide question section and show thank you section
         this.questionSection.style.animation = 'fadeOutScale 0.6s ease-in forwards';
         
@@ -355,6 +358,80 @@ class ValentineApp {
             // Create celebration hearts
             this.createCelebrationHearts();
         }, 600);
+    }
+
+    /**
+     * Setup GIF with fallback handling
+     */
+    setupGifWithFallback() {
+        const kissGif = document.getElementById('kissGif');
+        const gifFallback = document.getElementById('gifFallback');
+        
+        if (!kissGif || !gifFallback) return;
+        
+        // Set up loading states
+        kissGif.style.display = 'none';
+        gifFallback.style.display = 'none';
+        
+        // Try multiple GIF sources - optimized for GitHub Pages
+        const gifSources = [
+            'images/cristiano-kiss.gif', // Local file (GitHub Pages)
+            'https://media.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif', // Direct Giphy URL
+            'https://i.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif', // Alternative Giphy
+            'https://media1.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif', // Another mirror
+            'https://media2.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif' // Additional mirror
+        ];
+        
+        let currentSourceIndex = 0;
+        let hasLoaded = false;
+        
+        const tryLoadGif = () => {
+            if (currentSourceIndex >= gifSources.length || hasLoaded) {
+                // All sources failed
+                this.showGifFallback(kissGif, gifFallback);
+                return;
+            }
+            
+            if (hasLoaded) return; // Already loaded successfully
+            
+            const currentSource = gifSources[currentSourceIndex];
+            
+            // Create a new image to test loading
+            const testImg = new Image();
+            testImg.onload = () => {
+                // Source works, use it
+                kissGif.src = currentSource;
+                kissGif.style.display = 'block';
+                gifFallback.style.display = 'none';
+                hasLoaded = true;
+            };
+            
+            testImg.onerror = () => {
+                // Current source failed
+                currentSourceIndex++;
+                
+                // Try next source with a small delay
+                setTimeout(tryLoadGif, 200);
+            };
+            
+            // Start loading the test image
+            testImg.src = currentSource;
+        };
+        
+        // Start loading the first source
+        setTimeout(tryLoadGif, 100); // Small initial delay
+        
+        // Add a timeout fallback in case all sources fail
+        setTimeout(() => {
+            if (!hasLoaded) {
+                this.showGifFallback(kissGif, gifFallback);
+            }
+        }, 8000); // 8 second timeout
+    }
+    
+    showGifFallback(kissGif, gifFallback) {
+        kissGif.style.display = 'none';
+        gifFallback.style.display = 'flex';
     }
 
     /**

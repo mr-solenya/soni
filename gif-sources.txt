@@ -1,0 +1,17 @@
+# Alternative GIF URLs for GitHub Pages compatibility
+# If the local GIF doesn't load, these URLs will be tried in order:
+
+# 1. Original high-quality GIF (4MB) - may not work on GitHub Pages
+PRIMARY_GIF = "images/cristiano-kiss.gif"
+
+# 2. Giphy CDN URL (should work reliably)
+BACKUP_GIF_1 = "https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExdmp1enRuYWM4ejN6eGQzMm1tcHpybWcyazhhbmRkemxsd3N0a3N2MSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3unQhOKcogrdDr6qRZ/giphy.gif"
+
+# 3. Alternative Giphy URL
+BACKUP_GIF_2 = "https://media.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif"
+
+# 4. Direct Giphy URL
+BACKUP_GIF_3 = "https://i.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif"
+
+# For GitHub Pages deployment, the JavaScript will try these sources in order
+# until one loads successfully, then fall back to a CSS animation if all fail.

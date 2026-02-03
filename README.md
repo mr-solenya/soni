@@ -33,7 +33,7 @@ A beautiful, interactive Valentine's Day website featuring smooth animations, cl
 ## 🚀 How to Run Locally
 
 ### Option 1: Simple File Opening
-1. Download all three files (`index.html`, `styles.css`, `script.js`) to the same folder
+1. Download all files to the same folder
 2. Double-click `index.html` to open in your default browser
 3. Enjoy the interactive experience!
 
@@ -52,6 +52,49 @@ npx http-server
 php -S localhost:8000
 ```
 Then open `http://localhost:8000` in your browser.
+
+## 🌐 GitHub Pages Deployment
+
+### Option 1: Automatic Deployment (Recommended)
+1. Fork this repository on GitHub
+2. Go to Settings → Pages
+3. Source: Deploy from a branch
+4. Branch: `main` (or `master`) and `/ (root)`
+5. GitHub Actions will automatically deploy your site
+6. Your site will be available at: `https://[your-username].github.io/[repository-name]/`
+
+### Option 2: Manual Upload
+1. Create a new GitHub repository
+2. Upload all files to the repository
+3. Go to Settings → Pages
+4. Source: Deploy from a branch
+5. Select your branch and save
+
+### 🛠️ Troubleshooting GitHub Pages GIF Loading
+If the Cristiano Ronaldo kiss GIF doesn't load properly:
+
+1. **Check the test page**: Open `test-gif-loading.html` to see which sources work
+2. **Large file issues**: The local GIF is 4.1MB, which can cause GitHub Pages issues
+3. **Use external sources**: The code automatically falls back to multiple Giphy mirrors
+4. **Browser console**: Check for CORS or loading errors
+5. **Fallback content**: If all else fails, users see animated hearts and text
+
+### 📁 Repository Structure for GitHub Pages
+```
+your-repo/
+├── index.html              # Main page
+├── styles.css              # Styles
+├── script.js               # Interactive functionality
+├── images/
+│   └── cristiano-kiss.gif  # Local GIF file
+├── .nojekyll               # Tells GitHub Pages to skip Jekyll processing
+├── .github/
+│   └── workflows/
+│       └── deploy.yml      # Auto-deployment workflow
+├── test-gif-loading.html   # Test page for GIF sources
+├── GIF_LOADING_GUIDE.md    # Detailed troubleshooting guide
+└── README.md               # This file
+```
 
 ## 🧪 Testing Results
 
